@@ -1,5 +1,5 @@
 # MG-Notes
-# deploy to railway
+# deploy to railway 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/vzd1ED?referralCode=OCkeMo)
 ## Deploy To Heroku
 
