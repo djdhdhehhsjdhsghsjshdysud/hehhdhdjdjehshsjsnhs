@@ -1,7 +1,7 @@
 # MG-Notes
 # deploy to railway 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/iRF75T?referralCode=OCkeMo)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/iRF75T?referralCode=OCkeMo)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/-sC7Wl?referralCode=OCkeMo)
+
 ## Deploy To Heroku
 
 <a href="https://heroku.com/deploy?template=https://github.com/mayank-ind/mahitxt">
