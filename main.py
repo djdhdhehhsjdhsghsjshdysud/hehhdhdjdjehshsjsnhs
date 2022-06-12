@@ -250,7 +250,7 @@ async def account_login(bot: Client, m: Message):
 
 @bot.on_message(filters.command(["pyro"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Send txt file**")
+    editable = await m.reply_text("⚠️ Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -271,7 +271,7 @@ async def account_login(bot: Client, m: Message):
         os.remove(x)
         # print(len(links))
     except:
-        await m.reply_text("Invalid file input.")
+        await m.reply_text("❌ Invalid file input.")
         os.remove(x)
         return
 
@@ -315,7 +315,7 @@ async def account_login(bot: Client, m: Message):
 
             Show = f"**📥 Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
             prog = await m.reply_text(Show)
-            cc = f'**◗ Name :** {name}\n\n» **◗ Title :** {raw_text0}\n» **◗ Index :** {count}'
+            cc = f'**Name :** {name}\n\n» **Title :** {raw_text0}\n» **Index :** {count}'
             
             
             if "youtu" in url:
@@ -433,7 +433,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'>> **◗ File :** {name}\n>> **◗ Title :** {raw_text0}\n\n>> **◗ Index :** {count}')
+                        await m.reply_document(ka, caption=f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -452,7 +452,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"📤 Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'>> **◗ File :** {name}\n>> **◗ Title :** {raw_text0}\n\n>> **◗ Index :** {count}')
+                        await m.reply_document(ka, caption=f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -595,7 +595,7 @@ async def account_login(bot: Client, m: Message):
                 
             Show = f"**📥 Downloading:-**\n\n**◗ Name :-** `{name}`\n\n**◗ Url :-** `{url}`"
             prog = await m.reply_text(Show)
-            cc = f'**◗ Name :** {name}\n\n» **◗ Index :** {count}'
+            cc = f'**Name :** {name}\n\n» **Index :** {count}'
 
             cmd = f'yt-dlp -o "{name}.mp4" --cookies {cook} "{url}"'
             try:
