@@ -46,8 +46,8 @@ os.makedirs("./downloads", exist_ok=True)
 
 @bot.on_message(filters.command(["start"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello im txt file downloader\nPress /pyro to download links listed in a txt file in the format **Name:link**\n\nPress /link to download single link\nPress /ytdlp to know video info.\nPress /aio to download url.\n\nBot made by ACE")
-#testing topranker
+    editable = await m.reply_text("Hello im txt file downloader\n• Press /pyro to download links listed in a txt file in **Name:link** format\n• Press /link to download single link\n• Press /ytdlp to know video info.\n• Press /aio to download url.\n\nBot made by @Be4stX")
+#testing top
 # @bot.on_message(filters.command(["top"])& ~filters.edited)
 # async def upload(bot: Client, m: Message):
     
@@ -63,7 +63,7 @@ async def account_login(bot: Client, m: Message):
         
 @bot.on_message(filters.command(["link"])& ~filters.edited)
 async def upload(bot: Client, m: Message):
-    editable = await m.reply_text('Send link in **Name&link** format to download')
+    editable = await m.reply_text('Send link in **⚠️ Name&link** format to download')
     input9: Message = await bot.listen(editable.chat.id)
     raw = input9.text    
     name = raw.split('&')[0]
@@ -72,7 +72,7 @@ async def upload(bot: Client, m: Message):
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     
-    Show = f"**Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
+    Show = f"**📥 Downloading:-**\n\n**◗ Name :-** ```{name}\n◗ Quality - {raw_text2}```\n\n**◗ Url :-** ```{url}```"
     prog = await m.reply_text(Show)
     
     cc = f'>> **Name :** {name}'
@@ -192,7 +192,7 @@ async def upload(bot: Client, m: Message):
             await m.reply_video(f"{name}.mp4",caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur)
 
         except:
-            await m.reply_text("There was an error while uploading file as streamable so, now trying to upload as document.")
+            await m.reply_text("❌ There was an error while uploading file as streamable so, now trying to upload as document.")
             await m.reply_document(f"{name}.webm",caption=cc)
         os.remove(f"{name}.mp4")
         os.remove(f"{filename}.jpg")
@@ -203,7 +203,7 @@ async def upload(bot: Client, m: Message):
     
 @bot.on_message(filters.command(["aio"])& ~filters.edited)
 async def aiohttp(bot: Client, m: Message):
-    editable = await m.reply_text('Send link in **Name&link** format to download')
+    editable = await m.reply_text('⚠️ Send link in **Name&link** format to download')
     input9: Message = await bot.listen(editable.chat.id)
     raw = input9.text    
     name = raw.split('&')[0]
@@ -217,7 +217,7 @@ async def aiohttp(bot: Client, m: Message):
 @bot.on_message(filters.command(["ytdlp"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
     
-    editable = await m.reply_text('Send link in **Name&link** format to get its info')
+    editable = await m.reply_text('⚠️ Send link in **Name&link** format to get its info')
     input: Message = await bot.listen(editable.chat.id)
     raw_file = input.text    
     name = raw_file.split('&')[0]
@@ -228,7 +228,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text(out)
     buttons = []
     if 'unknown' in out[0][1]:
-        r = await m.reply_text("Its Unknown so Downloading")
+        r = await m.reply_text("🔥 Its Unknown so Downloading")
         f = helper.old_download(url, name)
 #         res_file = await fast_upload(bot, f, r)
         await m.reply_document(
@@ -245,7 +245,7 @@ async def account_login(bot: Client, m: Message):
         else:
             buttons.append(InlineKeyboardButton(i[1], callback_data=f"id:{i[0]}"))
     buttons_markup = InlineKeyboardMarkup([buttons])
-    await m.reply(f"Name : `{name}`\n\n:Link : `{url}`",reply_markup=buttons_markup)
+    await m.reply(f"◗ Name : `{name}`\n\n:◗ Link : `{url}`",reply_markup=buttons_markup)
             
 
 @bot.on_message(filters.command(["pyro"])& ~filters.edited)
@@ -255,7 +255,7 @@ async def account_login(bot: Client, m: Message):
     x = await input.download()
     await input.delete(True)
 
-    # editable = await m.reply_text("**Send From where you want to download**")
+    # editable = await m.reply_text("**⚠️ Send From where you want to download**")
     # input1: Message = await bot.listen(editable.chat.id)
     # raw_text = input1.text
 
@@ -275,7 +275,7 @@ async def account_login(bot: Client, m: Message):
         os.remove(x)
         return
 
-    editable = await m.reply_text(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **0**")
+    editable = await m.reply_text(f"✅ Total links found are **{len(links)}**\n\n◗ Send From where you want to download initial is **0**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text = input1.text
 
@@ -285,15 +285,15 @@ async def account_login(bot: Client, m: Message):
         arg = 0
     
     
-    editable = await m.reply_text("Enter Title")
+    editable = await m.reply_text("📜 Enter Title")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
     
-    await m.reply_text("**Enter resolution**")
+    await m.reply_text("**✨ Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/d9e24878bd4aba05049a1.jpg```\n\nor Send **no**")
+    editable4= await m.reply_text("⚠️ Now send the **Thumb url**\nEg : ```https://telegra.ph/file/66f9cc48495d4a65db780.jpg```\n\nor Send **no**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -313,9 +313,9 @@ async def account_login(bot: Client, m: Message):
             name = links[i][0].replace("\t", "")
                 # await m.reply_text(name +":"+ url)
 
-            Show = f"**Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
+            Show = f"**📥 Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
             prog = await m.reply_text(Show)
-            cc = f'**Name :** {name}\n\n» **Title :** {raw_text0}\n» **Index :** {count}'
+            cc = f'**◗ Name :** {name}\n\n» **◗ Title :** {raw_text0}\n» **◗ Index :** {count}'
             
             
             if "youtu" in url:
@@ -433,7 +433,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
+                        await m.reply_document(ka, caption=f'>> **◗ File :** {name}\n>> **◗ Title :** {raw_text0}\n\n>> **◗ Index :** {count}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -449,10 +449,10 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.aio(url)
                         await prog.delete (True)
                         time.sleep(1)
-                        reply = await m.reply_text(f"Uploading - ```{name}```")
+                        reply = await m.reply_text(f"📤 Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
+                        await m.reply_document(ka, caption=f'>> **◗ File :** {name}\n>> **◗ Title :** {raw_text0}\n\n>> **◗ Index :** {count}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -469,13 +469,13 @@ async def account_login(bot: Client, m: Message):
 #                         download_cmd = f"{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args 'aria2c: -x 16 -j 32'"
 #                         os.system(download_cmd)
 #                         filename = f"{name}.pdf"
-#                         await m.reply_document(f'{name}.pdf',caption =f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
+#                         await m.reply_document(f'{name}.pdf',caption =f'>> **◗ File :** {name}\n>> **◗ Title :** {raw_text0}\n\n>> **◗ Index :** {count}')
 #                         count+=1
 #                         await prog.delete (True)
 #                         os.remove(f'{name}.pdf')
 #                         time.sleep(2)
 #                     except Exception as e:
-#                         await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - ```{url}```")
+#                         await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**◗ Name** - {name}\n**◗ Link** - ```{url}```")
 #                         continue
                 else:
                     try:
@@ -484,7 +484,7 @@ async def account_login(bot: Client, m: Message):
                         filename = f"{name}.mp4"
                         subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                         await prog.delete (True)
-                        reply = await m.reply_text(f"Uploading - ```{name}```")
+                        reply = await m.reply_text(f"📤 Uploading - ```{name}```")
                         try:
                             if thumb == "no":
                                 thumbnail = f"{filename}.jpg"
@@ -504,7 +504,7 @@ async def account_login(bot: Client, m: Message):
                         await reply.delete (True)
                         time.sleep(1)
                     except Exception as e:
-                        await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - ```{url}```")
+                        await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**◗ Name** - {name}\n**◗ Link** - ```{url}```")
                         continue
             except Exception as e:
                 await m.reply_text(str(e))
@@ -530,11 +530,11 @@ async def account_login(bot: Client, m: Message):
         os.remove(x)
         # print(len(links))
     except:
-        await m.reply_text("Invalid file input.")
+        await m.reply_text("❌ Invalid file input.")
         os.remove(x)
         return
 
-    editable = await m.reply_text(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **0**")
+    editable = await m.reply_text(f"✅ Total links found are **{len(links)}**\n\n◗ Send From where you want to download initial is **0**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text = input1.text
 
@@ -544,12 +544,12 @@ async def account_login(bot: Client, m: Message):
         arg = 0
     
     
-    editable = await m.reply_text(f"**Copy Paste the App Name of which you want to download videos.**\n\n`vikramjeet`\n\n`sure60`\n\n`theoptimistclasses`")
+    editable = await m.reply_text(f"**⚠️ Copy Paste the App Name of which you want to download videos.**\n\n`vikramjeet`\n\n`sure60`\n\n`theoptimistclasses`")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
     
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/d9e24878bd4aba05049a1.jpg```\n\nor Send **no**")
+    editable4= await m.reply_text("⚠️ Now send the **Thumb url**\nEg : ```https://telegra.ph/file/66f9cc48495d4a65db780.jpg```\n\nor Send **no**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -593,9 +593,9 @@ async def account_login(bot: Client, m: Message):
                 getstatusoutput(f'curl "{rout}" -c "cookie.txt"')              
                 cook = "cookie.txt"
                 
-            Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url}`"
+            Show = f"**📥 Downloading:-**\n\n**◗ Name :-** `{name}`\n\n**◗ Url :-** `{url}`"
             prog = await m.reply_text(Show)
-            cc = f'**Name :** {name}\n\n» **Index :** {count}'
+            cc = f'**◗ Name :** {name}\n\n» **◗ Index :** {count}'
 
             cmd = f'yt-dlp -o "{name}.mp4" --cookies {cook} "{url}"'
             try:
@@ -604,7 +604,7 @@ async def account_login(bot: Client, m: Message):
                 filename = f"{name}.mp4"
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
-                reply = await m.reply_text(f"Uploading - ```{name}```")
+                reply = await m.reply_text(f"📤 Uploading - ```{name}```")
                 try:
                     if thumb == "no":
                         thumbnail = f"{filename}.jpg"
@@ -626,7 +626,7 @@ async def account_login(bot: Client, m: Message):
                 await reply.delete (True)
                 time.sleep(1)
             except Exception as e:
-                await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - ```{url}```")
+                await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**◗ Name** - {name}\n**◗ Link** - ```{url}```")
                 continue
     except Exception as e:
         await m.reply_text(str(e))
