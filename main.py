@@ -63,7 +63,7 @@ async def account_login(bot: Client, m: Message):
         
 @bot.on_message(filters.command(["link"])& ~filters.edited)
 async def upload(bot: Client, m: Message):
-    editable = await m.reply_text('Send link in **⚠️ Name&link** format to download')
+    editable = await m.reply_text('⚠️ Send link in **Name&link** format to download')
     input9: Message = await bot.listen(editable.chat.id)
     raw = input9.text    
     name = raw.split('&')[0]
@@ -75,7 +75,7 @@ async def upload(bot: Client, m: Message):
     Show = f"**📥 Downloading:-**\n\n**◗ Name :-** ```{name}\n◗ Quality - {raw_text2}```\n\n**◗ Url :-** ```{url}```"
     prog = await m.reply_text(Show)
     
-    cc = f'>> **Name :** {name}'
+    cc = f'» **Name :** {name}'
     
     
     if "youtu" in url:
@@ -228,7 +228,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text(out)
     buttons = []
     if 'unknown' in out[0][1]:
-        r = await m.reply_text("🔥 Its Unknown so Downloading")
+        r = await m.reply_text("❓ Its Unknown so Downloading")
         f = helper.old_download(url, name)
 #         res_file = await fast_upload(bot, f, r)
         await m.reply_document(
@@ -315,7 +315,7 @@ async def account_login(bot: Client, m: Message):
 
             Show = f"**📥 Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
             prog = await m.reply_text(Show)
-            cc = f'**Name :** {name}\n\n» **Title :** {raw_text0}\n» **Index :** {count}'
+            cc = f'» **Name :** {name}\n\n» **Title :** {raw_text0}\n» **Index :** {count}'
             
             
             if "youtu" in url:
@@ -452,7 +452,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"📤 Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'>> **File :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}')
+                        await m.reply_document(ka, caption=f'» **File :** {name}\n» **Title :** {raw_text0}\n\n» **Index :** {count}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -515,7 +515,7 @@ async def account_login(bot: Client, m: Message):
 
 @bot.on_message(filters.command(["top"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(f"**Hi im Topranker dl**")
+    editable = await m.reply_text(f"**Hi im Topranker dl⚡**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -571,7 +571,7 @@ async def account_login(bot: Client, m: Message):
 
             # Show = f"**Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
             # prog = await m.reply_text(Show)
-            # cc = f'>> **Name :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}'
+            # cc = f'» **Name :** {name}\n» **Title :** {raw_text0}\n\n» **Index :** {count}'
 
 
             if raw_text0 in "vikramjeet" :
@@ -595,7 +595,7 @@ async def account_login(bot: Client, m: Message):
                 
             Show = f"**📥 Downloading:-**\n\n**◗ Name :-** `{name}`\n\n**◗ Url :-** `{url}`"
             prog = await m.reply_text(Show)
-            cc = f'**Name :** {name}\n\n» **Index :** {count}'
+            cc = f'» **Name :** {name}\n\n» **Index :** {count}'
 
             cmd = f'yt-dlp -o "{name}.mp4" --cookies {cook} "{url}"'
             try:
